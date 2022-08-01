@@ -1,0 +1,61 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Test repo</title>
+    <style>
+        body{
+            background-image: url("./img/main-bg.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <img class="logo" src="./img/logo.jpg" alt="logo image">
+        <nav>
+            <ul>
+                <li a href="#">Home</li>
+                <li a href="#">Owners</li>
+                <li a href="#">Cars</li>
+                <li a href="#">Insurance</li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+    <h1>Add new person</h1>
+    <form>
+        <div class="form-field">
+            <label for="first-name-input">First Name</label>
+            <input type="text" id="first-name-input">
+        </div>
+        <div class="form-field">
+            <label for="last-name-input">Last Name</label>
+            <input type="text" id="last-name-input">
+        </div>
+        <div class="form-field">
+            <label for="CNP">CNP</label>
+            <input type="text" id="CNP">
+        </div>
+        <div class="form-field">
+            <label for="birthdate-input">Birthdate</label>
+            <input type="date" id="birthdate-input">
+        </div>
+        <div class="form-field">
+            <label for="gender-input">Gender</label>
+            <select  id="gender-input">
+                <option value="">Male</option>
+                <option value="">Female</option>
+                <option value="">N/A</option>
+            </select>
+        </div>
+        <div class="action-buttons">
+            <button type="submit">Add person</button>
+            <button type="reset">Reset form</button>
+        </div>
+    </form>
+    </main>
+</body>
+</html>
