@@ -94,6 +94,19 @@ form>.form-field{
     border-radius: 3px;
     margin:20px 0 10px 0;
 }
+.form-field> #first-name-input{
+    border: 3px solid black;
+}
+
+.form-field> #last-name-input{
+    border: 3px solid black;
+}
+.form-field> #cnp{
+    border: 3px solid black;
+}
+.form-field> #birthdate-input{
+    border: 3px solid black;
+}
 
 form > .form-field > input{
     height: 35px;
@@ -115,9 +128,8 @@ form > .form-field > input{
     padding: 16px 32px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 15px;
-    margin: 4px 2px;
+    margin: 6px 6px;
 }
 
 .action-buttons > #reset-btn{
@@ -126,10 +138,14 @@ form > .form-field > input{
     padding: 16px 32px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 15px;
-    margin: 4px 2px;
+    margin: 6px 6px;
 }
+
+#gender-input{
+    width: 100%;
+    border: 3px solid black;
+    border-radius: 6px;
 
 
 
