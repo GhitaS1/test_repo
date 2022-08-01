@@ -2,30 +2,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Test repo</title>
-    <style>
-        body{
-            background-image: url("./img/main-bg.jpg");
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-    </style>
-
+    <link rel="stylesheet" href="style.css">    
 </head>
 <body>
     <header>
         <img class="logo" src="./img/logo.jpg" alt="logo image">
         <nav>
             <ul>
-                <li a href="#">Home</li>
-                <li a href="#">Owners</li>
-                <li a href="#">Cars</li>
-                <li a href="#">Insurance</li>
+                <li><a href="#">Home</a></li> </li>
+                <li><a href="#">Owners</a></li> </li>
+                <li><a href="#">Cars</a></li> </li>
+                <li><a href="#">Insurance</a></li> </li>
             </ul>
         </nav>
     </header>
 
-    <main>
-    <h1>Add new person</h1>
+<main>
+    
+<div class="body">
+    <div class="title">Add new person</div>
     <form>
         <div class="form-field">
             <label for="first-name-input">First Name</label>
@@ -50,12 +45,13 @@
                 <option value="">Female</option>
                 <option value="">N/A</option>
             </select>
-        </div>
-        <div class="action-buttons">
-            <button type="submit">Add person</button>
-            <button type="reset">Reset form</button>
-        </div>
+        </div>    
     </form>
+    <div class="action-buttons">
+        <button id ="submit-btn" type="submit">Add person</button>
+        <button id ="reset-btn" type="reset">Reset form</button>
+    </div>
+</div>
     </main>
 </body>
 </html>
