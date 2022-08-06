@@ -1,0 +1,48 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    height: 5rem;
+
+    .logo {
+        height: 100%;
+        }
+}
+
+ul {
+    display: flex;
+    list-style: none;
+
+    li {
+        border-right: 2px solid rgb(188, 188, 234);
+    }
+
+    li:first-child > a {
+        border-radius: 90px 0 0 90px;
+    }
+
+    li:last-child > a {
+        border-radius: 0 90px 90px 0;
+    }
+
+    li:last-child {
+        border-right: none;
+    }
+
+}
+
+a {
+    display: block;
+    color: #666;
+    background-color: var(--main-bg-color);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: var(--form-bg-color);
+}
+
+.active {
+    background-color: green;
+}
