@@ -1,1 +1,85 @@
-<p>new-insurance works!</p>
+<div class="main">
+    <h2>Add new insurance</h2>
+    <div class="body">
+        <form>
+
+            <div class="form-field grid-col-span-2"  id="car-id-select">
+                <label for="car-select">Car Id</label>
+                <select id="car-select">
+                    <option value="1">Id 1</option>
+                    <option value="2">Id 2</option>
+                    <option value="3">Id 3</option>
+                </select>
+            </div>
+
+            <div class="form-field grid-col-span-2" id="person-id-select">
+                <label for="person-select">Person Id</label>
+                <select id="person-select">
+                    <option value="1">Id 1</option>
+                    <option value="2">Id 2</option>
+                    <option value="3">Id 3</option>
+                </select>
+            </div>
+
+            <div class="form-field " id="company-id-select">
+                <label for="company-select">Company</label>
+                <select id="company-select">
+                    <option value="1">Id 1</option>
+                    <option value="2">Id 2</option>
+                    <option value="3">Id 3</option>
+                </select>
+            </div>
+
+           
+
+            <div class="form-field grid-col-span-2">
+                <label for="end-date">End</label>
+                <input type="date" id="end-date"/>
+            </div>
+
+            <div class="form-field grid-col-span-2">
+                <label for="start-date">Start</label>
+                <input type="date" id="start-date"/>
+            </div>
+
+            <div class="form-field ">
+                <label for="price">Price</label>
+                <input type="number" id="price"/>
+            </div>
+
+            <div class="form-field">
+                <fieldset>
+                    
+                    <legend>Payment type:</legend>
+                    <div>
+                        <input type="radio" id="cash" name="payment-type" value="cash">
+                        <label for="cash">Cash</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="card" name="payment-type" value="card">
+                        <label for="card">Card</label>
+                    </div>
+
+
+                </fieldset>
+            </div>
+
+            <div class="form-field grid-col-span-4" >
+                <label for="notes">Notes</label>
+                <textarea type="text"  id="notes"></textarea>
+            </div>
+
+        <div class="checkbox form-field" id="checkbox-directpay" >
+            <label for="checkbox-directpay">Direct Pay</label>
+            <input type="checkbox" />
+        </div>
+            
+            <div class="action-buttons">
+                <button id="submit-button" type="submit">Add insurance</button>
+            </div>
+
+
+        </form>
+    </div>
+</div>

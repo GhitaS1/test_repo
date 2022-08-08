@@ -1,1 +1,53 @@
-<p>new-owner works!</p>
+
+    <div class="main">
+        <h2>Add new person</h2>
+        <div class="body">
+            <form>
+                <div class="form-field grid-col-span-2">
+                    <label for="first-name">{{firstNameLabel}}</label>
+                    <input type="text" id="first-name"/>
+                </div>
+                <div class="form-field grid-col-span-2">
+                    <label for="last-name">{{lastNameLabel}}</label>
+                    <input type="text" id="last-name"/>
+                </div>
+                <div class="form-field">
+                    <label for="birthdate">{{birthdateLabel}}</label>
+                    <input type="date" id="birthdate"/>
+                </div>
+                <div class="form-field">
+                    <label for="cnp">{{cnpLabel}}</label>
+                    <input type="text" id="cnp"/>
+                </div>
+                <div class="form-field" id="gender-select">
+                    <label for="select-de-mana">{{genderLabel}}</label>
+
+                    <!-- <select id="gender">
+                        <option value="1">Masculine</option>
+                        <option value="2">Feminine</option>
+                        <option value="3">N/A</option>
+                    </select> -->
+
+                    <div class="container">
+                        <div class="custom-select-wrapper" id="select-de-mana">
+                            <div class="custom-select">
+                                <div class="gender-select-trigger"><span>Masculin</span>
+                                    <div class="arrow"></div>
+                                </div>
+                                <div class="custom-options" id="custom-options-gender">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="action-buttons">
+                    <button id="submit-button" type="submit">Add person</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
