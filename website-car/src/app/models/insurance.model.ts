@@ -1,13 +1,13 @@
-import { paymentType } from "../enums/payment-type.enum";
+import { PaymentType } from "../enums/payment-type.enum";
 
-class Insurance {
+export class Insurance {
     cardId?: string[];
     personId?: string[];
     startDate?: Date;
     endDate?: Date;
     company?: string[];
     price?: number;
-    paymentType?: paymentType;
+    paymentType?: PaymentType;
     notes?: string;
 
     // constructor(private _cardId: string[], private _personId: string[], private _startDate: Date, private _endDate: Date, private _company: string[], private _price: number, private _notes: string, private _paymentType: paymentType){

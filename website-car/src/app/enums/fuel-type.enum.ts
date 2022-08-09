@@ -1,4 +1,5 @@
-export enum fuelType {
+export enum FuelType {
     SOLID = 'Solid',
-    LIQUID = 'Liquid'
+    LIQUID = 'Liquid',
+    GASEOUS = 'Gaseous'
 }

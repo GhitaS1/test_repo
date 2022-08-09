@@ -1,0 +1,72 @@
+<!-- {{ownersReceivedFromWrapper.length}}
+
+<div *ngIf="ownersReceivedFromWrapper.length > 0">
+    <p>Owner list length: {{ownersReceivedFromWrapper}} </p>
+</div>
+
+<ng-container *ngFor="let owner of ownersReceivedFromWrapper">
+    {{owner.firstName}} {{owner.lastName}}
+
+</ng-container>
+
+<div [ngSwitch]="gender">
+    <p *ngSwitchCase="GenderSelect.Masculin"> {{GenderSelect.Masculin}}</p>
+    <p *ngSwitchCase="GenderSelect.Feminin"> {{GenderSelect.Feminin}}</p>
+    <p *ngSwitchCaseDefault>Default</p>
+
+</div> -->
+
+<div class="list-body">
+    <h2> Table </h2>
+    <!-- *ngIf="ownersReceivedFromWrapper.length > 0; else emptyResults" -->
+<table >
+    <tr>
+        <th>
+            Index
+        </th>
+        <th>
+            First Name
+        </th>
+        <th>
+            Last Name
+        </th>
+        <th>
+            CNP
+        </th>
+        <th>
+            Birth Date
+        </th>
+        <th>
+            Gender
+        </th>
+        <th>
+            Edit Row
+        </th>
+    </tr>
+    <tr *ngFor="let owner of ownersReceivedFromWrapper; let i=index">
+        <td>
+            {{i}}
+        </td>
+        <td>
+            {{owner.firstName}}
+        </td>
+        <td>
+            {{owner.lastName}}
+        </td>
+        <td>
+            {{owner.cnp}}
+        </td>
+        <td>
+            {{owner.birthDate}}
+        </td>
+        <td>
+            {{owner.gender}}
+        </td>
+        <td>
+            <button type="submit" class="editButton" (click)="onEditClick(owner)" >Edit</button>
+        </td>
+    </tr>
+</table>
+
+<ng-template #emptyResults> <p>Empty table</p></ng-template>
+</div>

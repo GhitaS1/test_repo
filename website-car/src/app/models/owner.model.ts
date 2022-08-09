@@ -1,17 +1,17 @@
-import { genderSelect } from "../enums/gender-select.enum";
+import { GenderSelect } from "../enums/gender-select.enum";
 
-class Owner {
+export class Owner {
     firstName?: string;
     lastName?: string;
     cnp?: number;
     birthDate?: Date;
-    gender?: genderSelect;
+    gender?: GenderSelect;
 
-    // constructor(private _firstName: string, private _lastName: string, private _cnp: number, private _birthDate: Date, private _gender: genderSelect){
-    //     this.firstName = _firstName;
-    //     this.lastName = _lastName;
-    //     this.cnp = _cnp;
-    //     this.birthDate = _birthDate;
-    //     this.gender = _gender;
-    // }
+    constructor(firstName: string, lastName: string, cnp: number, birthDate: Date, gender: GenderSelect){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.cnp = cnp;
+        this.birthDate = birthDate;
+        this.gender = gender;
+    }
 }

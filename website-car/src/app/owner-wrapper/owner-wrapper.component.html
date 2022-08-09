@@ -1,0 +1,2 @@
+<app-new-owner class="new-owner" (addOwnerEvent)="insertIntoList($event)" [fromWrapperToOwner]="ownerReceivedFromTable"></app-new-owner>
+<app-owner-list class="new-owner-list" [ownersReceivedFromWrapper]="owners" (sendOwnerFromTable)="onEditForm($event)"></app-owner-list>

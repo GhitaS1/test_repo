@@ -9,6 +9,11 @@ import { NewInsuranceComponent } from './new-insurance/new-insurance.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { FormsModule } from '@angular/forms';
+import { CanActivateRouteGuard } from './can-activate-router-cars';
+import { OwnerListComponent } from './owner-list/owner-list.component';
+import { OwnerWrapperComponent } from './owner-wrapper/owner-wrapper.component';
+
 
 @NgModule({
   declarations: [
@@ -18,13 +23,17 @@ import { FooterComponent } from './footer/footer.component';
     NewInsuranceComponent,
     HomeComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    NewCarComponent,
+    OwnerListComponent,
+    OwnerWrapperComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [CanActivateRouteGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

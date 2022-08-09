@@ -1,5 +1,5 @@
 .main {
-    padding-top: 100px;
+    padding-top: 60px;
 }
 
 
@@ -37,7 +37,7 @@ form .action-buttons {
     justify-content: flex-end;
 }
 
-form .action-buttons > #submit-button {
+form .action-buttons > #submit-button, #reset-button {
     background-color: var(--form-bg-color);
     color: var(--app-black);
     border: 2px solid var(--btn-color);
@@ -52,6 +52,9 @@ form .action-buttons > #submit-button {
 
 form .action-buttons > #submit-button:hover {
     background-color: var(--btn-color);
+}
+form .action-buttons > #reset-button:hover{
+  background-color: var(--btn-color);
 }
 
 .grid-col-span-2 {
