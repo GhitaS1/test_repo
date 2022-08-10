@@ -43,8 +43,8 @@
 
                 </div>
                 <div class="action-buttons">
-                    <button id="submit-button" type="submit" >Add person</button>
-                    <button id="update-button" (click)="updateOwnerInList($event, formId)" >Update</button>
+                    <button *ngIf="!fromWrapperToOwner" id="submit-button" type="submit" >Add person</button>
+                    <button *ngIf="!!fromWrapperToOwner" id="update-button" type="button" (click)="updateOwnerInList($event, formId)" >Update</button>
                     <button id="reset-button"  type="reset"> Reset form </button>
                 </div>
 

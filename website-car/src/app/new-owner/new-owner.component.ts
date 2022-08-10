@@ -13,9 +13,9 @@ export class NewOwnerComponent implements OnInit {
 
   @Output() updateOwnerEvent: EventEmitter<Owner> = new EventEmitter();
   @Output() addOwnerEvent: EventEmitter<Owner> = new EventEmitter();
-  @Input() fromWrapperToOwner?: Owner;
+  @Input() fromWrapperToOwner: Owner | undefined;
 
-  
+
   firstNameLabel: string = 'First Name';
   lastNameLabel: string = 'Last Name';
   cnpLabel: string = 'CNP';
@@ -34,27 +34,30 @@ export class NewOwnerComponent implements OnInit {
 
   }
 
-  submitForm(form: NgForm){
+  submitForm(form: NgForm) {
     let owner = new Owner(form.form.value.firstName, form.form.value.lastName, form.form.value.cnp, form.form.value.birthDate, form.form.value.gender);
+    form.reset();
     this.addOwnerEvent.emit(owner);
   }
 
-  resetForm(form: NgForm){
+  resetForm(form: NgForm) {
     form.reset();
-    this.fromWrapperToOwner = {};
+    this.fromWrapperToOwner = undefined;
     this.addOwnerEvent.emit(undefined);
   }
 
-  updateOwnerInList(event:any, form: NgForm){
+  updateOwnerInList(event: any, form: NgForm) {
     if (this.fromWrapperToOwner) {
       this.fromWrapperToOwner.firstName = form.form.value.firstName;
       this.fromWrapperToOwner.lastName = form.form.value.lastName;
       this.fromWrapperToOwner.gender = form.form.value.gender;
       this.fromWrapperToOwner.cnp = form.form.value.cnp;
       this.fromWrapperToOwner.birthDate = form.form.value.birthDate;
+      form.reset();
+      this.fromWrapperToOwner = undefined;
       this.updateOwnerEvent.emit(this.fromWrapperToOwner);
     }
-    event.preventDefault();
+    // event.preventDefault();
   }
   //   submitForm(form: NgForm){
   //   console.log(form.value);
@@ -63,9 +66,9 @@ export class NewOwnerComponent implements OnInit {
   //   console.log(this.owners);
   // }
 
-  
-  
- }
- 
+
+
+}
+
 
 
