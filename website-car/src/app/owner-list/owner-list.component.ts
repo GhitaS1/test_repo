@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { GenderSelect } from '../enums/gender-select.enum';
 import { Owner } from '../models/owner.model';
 
@@ -7,7 +7,7 @@ import { Owner } from '../models/owner.model';
   templateUrl: './owner-list.component.html',
   styleUrls: ['./owner-list.component.scss']
 })
-export class OwnerListComponent implements OnInit {
+export class OwnerListComponent implements OnInit, OnChanges {
 
   owner?: Owner;
 
@@ -16,6 +16,7 @@ export class OwnerListComponent implements OnInit {
   GenderSelect = GenderSelect;
 
   @Input() ownersReceivedFromWrapper: Owner[] = [];
+  @Input() ownerToUpdate: Owner = {};
   @Output() sendOwnerFromTable: EventEmitter<Owner> = new EventEmitter();
 
   constructor() {
@@ -28,8 +29,20 @@ export class OwnerListComponent implements OnInit {
         break;
       default:
         console.log("default")
+
     }
 
+  }
+  
+  ngOnChanges(changes: SimpleChanges): void {
+    const own: Owner = changes['ownerToUpdate'].currentValue;
+    if (own) {
+      for(let x=0; x<this.ownersReceivedFromWrapper.length;x++) {
+        if (this.ownersReceivedFromWrapper[x].id === own.id) {
+          this.ownersReceivedFromWrapper[x] = own;
+        }
+      }
+    }
   }
 
   ngOnInit(): void {

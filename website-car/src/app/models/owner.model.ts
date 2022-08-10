@@ -1,6 +1,8 @@
 import { GenderSelect } from "../enums/gender-select.enum";
 
 export class Owner {
+  public static ID: number = 0;
+    id?: number;
     firstName?: string;
     lastName?: string;
     cnp?: number;
@@ -13,5 +15,6 @@ export class Owner {
         this.cnp = cnp;
         this.birthDate = birthDate;
         this.gender = gender;
+        this.id = Owner.ID++;
     }
 }

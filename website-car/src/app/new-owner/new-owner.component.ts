@@ -11,6 +11,7 @@ import { Owner } from '../models/owner.model';
 })
 export class NewOwnerComponent implements OnInit {
 
+  @Output() updateOwnerEvent: EventEmitter<Owner> = new EventEmitter();
   @Output() addOwnerEvent: EventEmitter<Owner> = new EventEmitter();
   @Input() fromWrapperToOwner?: Owner;
 
@@ -39,9 +40,22 @@ export class NewOwnerComponent implements OnInit {
   }
 
   resetForm(form: NgForm){
-   form.reset();
+    form.reset();
+    this.fromWrapperToOwner = {};
+    this.addOwnerEvent.emit(undefined);
   }
 
+  updateOwnerInList(event:any, form: NgForm){
+    if (this.fromWrapperToOwner) {
+      this.fromWrapperToOwner.firstName = form.form.value.firstName;
+      this.fromWrapperToOwner.lastName = form.form.value.lastName;
+      this.fromWrapperToOwner.gender = form.form.value.gender;
+      this.fromWrapperToOwner.cnp = form.form.value.cnp;
+      this.fromWrapperToOwner.birthDate = form.form.value.birthDate;
+      this.updateOwnerEvent.emit(this.fromWrapperToOwner);
+    }
+    event.preventDefault();
+  }
   //   submitForm(form: NgForm){
   //   console.log(form.value);
   //   const owner: Owner = Object.assign(new Owner(), form.value);
