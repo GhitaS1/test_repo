@@ -13,6 +13,10 @@ import { FormsModule } from '@angular/forms';
 import { CanActivateRouteGuard } from './can-activate-router-cars';
 import { OwnerListComponent } from './owner-list/owner-list.component';
 import { OwnerWrapperComponent } from './owner-wrapper/owner-wrapper.component';
+import { ChangeBackgroundDirective } from './directives/change-background.directive';
+import { FocusInputDirective } from './directives/focus-input.directive';
+import { TableRowColorDirective } from './directives/table-row-color.directive';
+import { ButtonsComponent } from './buttons/buttons.component';
 
 
 @NgModule({
@@ -26,7 +30,11 @@ import { OwnerWrapperComponent } from './owner-wrapper/owner-wrapper.component';
     FooterComponent,
     NewCarComponent,
     OwnerListComponent,
-    OwnerWrapperComponent
+    OwnerWrapperComponent,
+    ChangeBackgroundDirective,
+    FocusInputDirective,
+    TableRowColorDirective,
+    ButtonsComponent
   ],
   imports: [
     BrowserModule,

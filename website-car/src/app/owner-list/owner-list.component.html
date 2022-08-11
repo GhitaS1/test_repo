@@ -43,29 +43,31 @@
             Edit Row
         </th>
     </tr>
-    <tr *ngFor="let owner of ownersReceivedFromWrapper; let i=index">
-        <td>
-            {{i}}
-        </td>
-        <td>
-            {{owner.firstName}}
-        </td>
-        <td>
-            {{owner.lastName}}
-        </td>
-        <td>
-            {{owner.cnp}}
-        </td>
-        <td>
-            {{owner.birthDate}}
-        </td>
-        <td>
-            {{owner.gender}}
-        </td>
-        <td>
-            <button type="submit" class="editButton" (click)="onEditClick(owner)" >Edit</button>
-        </td>
-    </tr>
+    <ng-container *ngFor="let owner of ownersReceivedFromWrapper; let i=index">
+        <tr appTableRowColor [indexNumber]="i" >
+            <td>
+                {{i}}
+            </td>
+            <td>
+                {{owner.firstName}}
+            </td>
+            <td>
+                {{owner.lastName}}
+            </td>
+            <td>
+                {{owner.cnp}}
+            </td>
+            <td>
+                {{owner.birthDate}}
+            </td>
+            <td>
+                {{owner.gender}}
+            </td>
+            <td>
+                <button class="editButton" (click)="onEditClick(owner)" >Edit</button>
+            </td>
+        </tr>
+    </ng-container>
 </table>
 
 <ng-template #emptyResults> <p>Empty table</p></ng-template>

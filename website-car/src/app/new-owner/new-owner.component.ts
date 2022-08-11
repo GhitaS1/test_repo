@@ -1,7 +1,9 @@
 import { ThisReceiver } from '@angular/compiler';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { from } from 'rxjs';
 import { GenderSelect } from '../enums/gender-select.enum';
+import { ButtonEvents } from '../models/button-events';
 import { Owner } from '../models/owner.model';
 
 @Component({
@@ -10,10 +12,19 @@ import { Owner } from '../models/owner.model';
   styleUrls: ['./new-owner.component.scss']
 })
 export class NewOwnerComponent implements OnInit {
+  private _fromWrapperToOwner: Owner | undefined;
 
   @Output() updateOwnerEvent: EventEmitter<Owner> = new EventEmitter();
   @Output() addOwnerEvent: EventEmitter<Owner> = new EventEmitter();
-  @Input() fromWrapperToOwner: Owner | undefined;
+  @Input() set fromWrapperToOwner(value: Owner | undefined) {
+    this.buttonLabel = !!value ? 'Update Owner' : 'Add Owner';
+    this._fromWrapperToOwner = value;
+  }
+
+  get fromWrapperToOwner() {
+    return this._fromWrapperToOwner;
+  }
+
 
 
   firstNameLabel: string = 'First Name';
@@ -21,6 +32,7 @@ export class NewOwnerComponent implements OnInit {
   cnpLabel: string = 'CNP';
   birthdateLabel: string = 'Birth Date';
   genderLabel: string = 'Gender';
+  buttonLabel: string = '';
 
   GenderSelect = GenderSelect;
 
@@ -43,10 +55,9 @@ export class NewOwnerComponent implements OnInit {
   resetForm(form: NgForm) {
     form.reset();
     this.fromWrapperToOwner = undefined;
-    this.addOwnerEvent.emit(undefined);
   }
 
-  updateOwnerInList(event: any, form: NgForm) {
+  updateOwnerInList(form: NgForm) {
     if (this.fromWrapperToOwner) {
       this.fromWrapperToOwner.firstName = form.form.value.firstName;
       this.fromWrapperToOwner.lastName = form.form.value.lastName;
@@ -54,19 +65,23 @@ export class NewOwnerComponent implements OnInit {
       this.fromWrapperToOwner.cnp = form.form.value.cnp;
       this.fromWrapperToOwner.birthDate = form.form.value.birthDate;
       form.reset();
-      this.fromWrapperToOwner = undefined;
       this.updateOwnerEvent.emit(this.fromWrapperToOwner);
+      this.fromWrapperToOwner = undefined;
     }
-    // event.preventDefault();
   }
-  //   submitForm(form: NgForm){
-  //   console.log(form.value);
-  //   const owner: Owner = Object.assign(new Owner(), form.value);
-  //   this.owners.push(owner);
-  //   console.log(this.owners);
-  // }
 
+  buttonHandler(form: NgForm) {
+    return () => {
+      if (this.fromWrapperToOwner) this.updateOwnerInList(form);
+      else if (!this.fromWrapperToOwner) this.submitForm(form);
+    }
+  }
 
+  buttonReset(form: NgForm) {
+    return () => {
+      this.resetForm(form);
+    }
+  }
 
 }
 

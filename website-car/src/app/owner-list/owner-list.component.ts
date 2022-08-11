@@ -7,7 +7,7 @@ import { Owner } from '../models/owner.model';
   templateUrl: './owner-list.component.html',
   styleUrls: ['./owner-list.component.scss']
 })
-export class OwnerListComponent implements OnInit, OnChanges {
+export class OwnerListComponent implements OnInit {
 
   owner?: Owner;
 
@@ -16,7 +16,12 @@ export class OwnerListComponent implements OnInit, OnChanges {
   GenderSelect = GenderSelect;
 
   @Input() ownersReceivedFromWrapper: Owner[] = [];
-  @Input() ownerToUpdate: Owner = {};
+  @Input() set ownerToUpdate(value: Owner | undefined) {
+    if (value) {
+      const index = this.ownersReceivedFromWrapper.findIndex((owner) => owner.id === value.id);
+      this.ownersReceivedFromWrapper[index] = {...value};
+    }
+  }
   @Output() sendOwnerFromTable: EventEmitter<Owner> = new EventEmitter();
 
   constructor() {
@@ -33,17 +38,17 @@ export class OwnerListComponent implements OnInit, OnChanges {
     }
 
   }
-  
-  ngOnChanges(changes: SimpleChanges): void {
-    const own: Owner = changes['ownerToUpdate'].currentValue;
-    if (own) {
-      for(let x=0; x<this.ownersReceivedFromWrapper.length;x++) {
-        if (this.ownersReceivedFromWrapper[x].id === own.id) {
-          this.ownersReceivedFromWrapper[x] = own;
-        }
-      }
-    }
-  }
+
+  // ngOnChanges(changes: SimpleChanges): void {
+  //   const own: Owner = changes['ownerToUpdate'].currentValue;
+  //   if (own) {
+  //     for(let x=0; x<this.ownersReceivedFromWrapper.length;x++) {
+  //       if (this.ownersReceivedFromWrapper[x].id === own.id) {
+  //         this.ownersReceivedFromWrapper[x] = own;
+  //       }
+  //     }
+  //   }
+  // }
 
   ngOnInit(): void {
   }

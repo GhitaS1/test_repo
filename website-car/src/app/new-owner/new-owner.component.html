@@ -1,34 +1,34 @@
+<div class="main">
+    <h2>Add new person</h2>
+    <div class="body">
+        <form #formId="ngForm" (ngSubmit)="submitForm(formId)" (ngReset)="resetForm(formId)">
+            <div class="form-field grid-col-span-2">
+                <label for="first-name">{{firstNameLabel}}</label>
+                <input type="text" id="first-name" name="firstName" [ngModel]=fromWrapperToOwner?.firstName
+                    appFocusInput />
+            </div>
+            <div class="form-field grid-col-span-2">
+                <label for="last-name">{{lastNameLabel}}</label>
+                <input type="text" id="last-name" name="lastName" [ngModel]=fromWrapperToOwner?.lastName />
+            </div>
+            <div class="form-field">
+                <label for="birthdate">{{birthdateLabel}}</label>
+                <input type="date" id="birthdate" name="birthDate" [ngModel]=fromWrapperToOwner?.birthDate />
+            </div>
+            <div class="form-field">
+                <label for="cnp">{{cnpLabel}}</label>
+                <input type="text" id="cnp" name="cnp" [ngModel]=fromWrapperToOwner?.cnp />
+            </div>
+            <div class="form-field" id="gender-select">
+                <label for="gender">{{genderLabel}}</label>
 
-    <div class="main">
-        <h2>Add new person</h2>
-        <div class="body">
-            <form #formId="ngForm" (ngSubmit)="submitForm(formId)" (ngReset) = "resetForm(formId)">
-                <div class="form-field grid-col-span-2">
-                    <label for="first-name">{{firstNameLabel}}</label>
-                    <input type="text" id="first-name" name="firstName" [ngModel]=fromWrapperToOwner?.firstName/>
-                </div>
-                <div class="form-field grid-col-span-2">
-                    <label for="last-name">{{lastNameLabel}}</label>
-                    <input type="text" id="last-name" name="lastName" [ngModel]=fromWrapperToOwner?.lastName/>
-                </div>
-                <div class="form-field">
-                    <label for="birthdate">{{birthdateLabel}}</label>
-                    <input type="date" id="birthdate" name="birthDate" [ngModel]=fromWrapperToOwner?.birthDate />
-                </div>
-                <div class="form-field">
-                    <label for="cnp">{{cnpLabel}}</label>
-                    <input type="text" id="cnp" name="cnp" [ngModel]=fromWrapperToOwner?.cnp/>
-                </div>
-                <div class="form-field" id="gender-select">
-                    <label for="gender">{{genderLabel}}</label>
+                <select id="gender" name="gender" [ngModel]=fromWrapperToOwner?.gender>
+                    <option value="{{GenderSelect.Masculin}}">{{GenderSelect.Masculin}}</option>
+                    <option value="{{GenderSelect.Feminin}}">{{GenderSelect.Feminin}}</option>
+                    <option value="{{GenderSelect.Unknown}}">{{GenderSelect.Unknown}}</option>
+                </select>
 
-                    <select id="gender" name="gender" [ngModel]=fromWrapperToOwner?.gender>
-                        <option value="{{GenderSelect.Masculin}}">{{GenderSelect.Masculin}}</option>
-                        <option value="{{GenderSelect.Feminin}}">{{GenderSelect.Feminin}}</option>
-                        <option value="{{GenderSelect.Unknown}}">{{GenderSelect.Unknown}}</option>
-                    </select>
-
-                    <!-- <div class="container">
+                <!-- <div class="container">
                         <div class="custom-select-wrapper" id="select-de-mana">
                             <div class="custom-select">
                                 <div class="gender-select-trigger"><span>Masculin</span>
@@ -41,22 +41,12 @@
                         </div>
                     </div> -->
 
-                </div>
-                <div class="action-buttons">
-                    <button *ngIf="!fromWrapperToOwner" id="submit-button" type="submit" >Add person</button>
-                    <button *ngIf="!!fromWrapperToOwner" id="update-button" type="button" (click)="updateOwnerInList($event, formId)" >Update</button>
-                    <button id="reset-button"  type="reset"> Reset form </button>
-                </div>
+            </div>
 
-                <div>
-                    <ul id="owner-list">
-                    
-
-                    </ul>
-                </div>
-            </form>
-        </div>
+            <div class="action-buttons">
+                <app-buttons [label]="buttonLabel" [action]="buttonHandler(formId)"></app-buttons>
+                <app-buttons label='Reset Form' [action]="buttonReset(formId)"></app-buttons>
+            </div>
+        </form>
     </div>
-
-
-
+</div>

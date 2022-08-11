@@ -20,23 +20,20 @@ export class OwnerWrapperComponent implements OnInit {
   }
 
   insertIntoList(owner: Owner) {
-    const owns: Owner[] = this.owners ? this.owners : [];
-    owns.push(owner);
-    //this.owners.push(owner);
-    this.owners = owns;
+    this.owners = [...this.owners, owner];
+
   }
 
   onEditForm(ownerSentFromTable: Owner) {
     if (ownerSentFromTable) {
-      this.ownerReceivedFromTable = ownerSentFromTable;
+      this.ownerReceivedFromTable = {...ownerSentFromTable};
     } else {
       this.ownerReceivedFromTable = {};
     }
   }
 
   updateOwner(owner: Owner){
-    this.ownerToEdit = owner;
-    console.log(owner);
+    this.ownerToEdit = {...owner};
   }
 
 

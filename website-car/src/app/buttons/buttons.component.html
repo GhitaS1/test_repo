@@ -1,0 +1,8 @@
+<div class="action-buttons">
+    <!-- <button *ngIf="!fromWrapperToOwner" id="submit-button" type="submit" >Add person</button>
+    <button *ngIf="!!fromWrapperToOwner" id="update-button" type="button" (click)="updateOwnerInList($event, formId)" >Update</button>
+    <button id="reset-button"  type="reset"> Reset form </button> -->
+    <ng-container *ngIf="action">
+        <button id="buton-in-componenta" type="button" (click)="action()">{{label}}</button>
+    </ng-container>
+</div>

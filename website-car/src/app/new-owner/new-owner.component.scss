@@ -10,7 +10,7 @@ form {
     padding: 20px
 }
 
-form > .form-field > input {
+form>.form-field>input {
     width: 100%;
     padding: 14px 20px;
     margin: 10px 0px;
@@ -20,13 +20,13 @@ form > .form-field > input {
     box-sizing: border-box;
 }
 
-form > .form-field {
+form>.form-field {
     padding: 14px;
     background-color: var(--main-bg-color);
 }
 
 
-form > .form-field:nth-child(4) {
+form>.form-field:nth-child(4) {
     grid-column: 1 / 3;
     grid-row-start: 2;
 }
@@ -37,36 +37,11 @@ form .action-buttons {
     justify-content: flex-end;
 }
 
-form .action-buttons > #submit-button, #reset-button, #update-button {
-    background-color: var(--form-bg-color);
-    color: var(--app-black);
-    border: 2px solid var(--btn-color);
-    padding: 16px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 15px;
-    margin: 4px 4px;
-    cursor: pointer;
-}
-
-form .action-buttons > #submit-button:hover {
-    background-color: var(--btn-color);
-}
-form .action-buttons > #reset-button:hover{
-  background-color: var(--btn-color);
-}
-
-form .action-buttons > #update-button:hover{
-  background-color: var(--btn-color);
-}
-
 .grid-col-span-2 {
     grid-column: span 2;
 }
 
-
-#gender-select > select {
+#gender-select>select {
     width: 100%;
     padding: 15px 20px;
     margin: 8px 0;
