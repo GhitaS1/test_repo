@@ -5,11 +5,11 @@ export class Owner {
     id?: number;
     firstName?: string;
     lastName?: string;
-    cnp?: number;
+    cnp?: string;
     birthDate?: Date;
     gender?: GenderSelect;
 
-    constructor(firstName: string, lastName: string, cnp: number, birthDate: Date, gender: GenderSelect){
+    constructor(firstName: string, lastName: string, cnp: string, birthDate: Date, gender: GenderSelect){
         this.firstName = firstName;
         this.lastName = lastName;
         this.cnp = cnp;

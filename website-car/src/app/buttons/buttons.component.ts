@@ -1,6 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ButtonEvents } from '../models/button-events';
-import { Owner } from '../models/owner.model';
+import { Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-buttons',
@@ -11,6 +9,4 @@ export class ButtonsComponent {
 
   @Input() label: string = '';
   @Input() action: (() => void) | undefined;
-
-
 }

@@ -1,5 +1,6 @@
 <div class="main">
-    <h2>Add new person</h2>
+   <h2> {{componentTitle | uppercase}}</h2>
+    {{myDate | date: 'dd.MMM.YYYY hh mm ss'}}
     <div class="body">
         <form #formId="ngForm" (ngSubmit)="submitForm(formId)" (ngReset)="resetForm(formId)">
             <div class="form-field grid-col-span-2">
@@ -50,3 +51,13 @@
         </form>
     </div>
 </div>
+
+
+
+<!-- <div>
+    <input type="checkbox" [(ngModel)]="value">
+
+    <button class="btn" id="btn-ngc" [disabled]="value">
+        {{value ? 'ON' : 'OFF'}}
+    </button>
+</div> -->

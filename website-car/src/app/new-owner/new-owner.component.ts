@@ -1,9 +1,7 @@
-import { ThisReceiver } from '@angular/compiler';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { from } from 'rxjs';
+import { timer } from 'rxjs';
 import { GenderSelect } from '../enums/gender-select.enum';
-import { ButtonEvents } from '../models/button-events';
 import { Owner } from '../models/owner.model';
 
 @Component({
@@ -16,7 +14,8 @@ export class NewOwnerComponent implements OnInit {
 
   @Output() updateOwnerEvent: EventEmitter<Owner> = new EventEmitter();
   @Output() addOwnerEvent: EventEmitter<Owner> = new EventEmitter();
-  @Input() set fromWrapperToOwner(value: Owner | undefined) {
+  @Input()
+  set fromWrapperToOwner(value: Owner | undefined) {
     this.buttonLabel = !!value ? 'Update Owner' : 'Add Owner';
     this._fromWrapperToOwner = value;
   }
@@ -26,13 +25,16 @@ export class NewOwnerComponent implements OnInit {
   }
 
 
-
   firstNameLabel: string = 'First Name';
   lastNameLabel: string = 'Last Name';
   cnpLabel: string = 'CNP';
   birthdateLabel: string = 'Birth Date';
   genderLabel: string = 'Gender';
   buttonLabel: string = '';
+  value = false;
+  componentTitle:string = "Add new owner";
+  myDate?:Date;
+  price: number = 100;
 
   GenderSelect = GenderSelect;
 
@@ -43,6 +45,12 @@ export class NewOwnerComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
+    timer(0, 1000).subscribe(() => {
+      this.myDate = new Date;
+    }
+
+    )
 
   }
 

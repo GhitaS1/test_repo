@@ -17,6 +17,9 @@ import { ChangeBackgroundDirective } from './directives/change-background.direct
 import { FocusInputDirective } from './directives/focus-input.directive';
 import { TableRowColorDirective } from './directives/table-row-color.directive';
 import { ButtonsComponent } from './buttons/buttons.component';
+import { CommonModule } from '@angular/common';
+import { MyFirstPipePipe } from './pipes/my-first-pipe.pipe';
+import { PhonePipe } from './pipes/phone.pipe';
 
 
 @NgModule({
@@ -34,12 +37,15 @@ import { ButtonsComponent } from './buttons/buttons.component';
     ChangeBackgroundDirective,
     FocusInputDirective,
     TableRowColorDirective,
-    ButtonsComponent
+    ButtonsComponent,
+    MyFirstPipePipe,
+    PhonePipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
   providers: [CanActivateRouteGuard],
   bootstrap: [AppComponent]
