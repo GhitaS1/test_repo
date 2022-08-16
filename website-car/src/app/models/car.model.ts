@@ -1,6 +1,8 @@
 import { FuelType } from "../enums/fuel-type.enum";
 
 export class Car {
+  public static ID: number = 0;
+    id?: number;
     carBrand?: string;
     carModel?: string;
     cubicCap?: number;
@@ -21,5 +23,6 @@ export class Car {
         this.carPower = power;
         this.fuelType = fuelType;
         this.ownerId = ownerId;
+        this.id = Car.ID++;
     }
 }

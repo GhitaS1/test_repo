@@ -1,0 +1,84 @@
+<div class="list-body">
+  <h2> Table </h2>
+  <!-- *ngIf="ownersReceivedFromWrapper.length > 0; else emptyResults" -->
+<table >
+  <tr>
+      <th>
+          Index
+      </th>
+       <th>
+          Brand
+      </th>
+      <th>
+          Model
+      </th>
+      <th>
+          Cubic Cap
+      </th>
+      <th>
+          Serial Num
+      </th>
+      <th>
+          Type
+      </th>
+      <th>
+          Plates
+      </th>
+      <th>
+        Power
+      </th>
+      <th>
+        Fuel type
+      </th>
+      <th>
+        Owner ID
+      </th>
+      <th>
+        Edit
+      </th>
+  </tr>
+  <ng-container *ngFor="let car of carList; let i=index">
+      <tr appTableRowColor [indexNumber]="i" >
+          <td>
+              {{i}}
+          </td>
+
+          <td>
+              {{car.carBrand}}
+          </td>
+
+          <td>
+              {{car.carModel}}
+          </td>
+
+          <td>
+              {{car.cubicCap}}
+          </td>
+
+          <td>
+            {{car.serialNum}}
+          </td>
+          <td>
+            {{car.carType}}
+          </td>
+          <td>
+            {{car.carPlates}}
+          </td>
+          <td>
+            {{car.carPower}}
+          </td>
+          <td>
+            {{car.fuelType}}
+          </td>
+          <td>
+            {{car.ownerId}}
+          </td>
+          <td>
+              <button class="editButton" (click)="editCar(car)" >Edit</button>
+          </td>
+      </tr>
+  </ng-container>
+</table>
+
+<!-- <ng-template #emptyResults> <p>Empty table</p></ng-template>
+</div> -->

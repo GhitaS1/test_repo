@@ -1,0 +1,2 @@
+<app-new-car [carToEdit]="carToEdit" (outputCar)="sendCarToList($event)" ></app-new-car>
+<app-car-list [newCar]="newCar" (sendCarToEdit)="setCarToEdit($event)"></app-car-list>

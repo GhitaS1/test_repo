@@ -42,7 +42,7 @@ form-field:nth-child(4) {
     justify-content: flex-end;
 }
 
-form .action-buttons > #submit-button {
+form .action-buttons > #submit-button, #select {
     background-color: var(--form-bg-color);
     border: 2px solid var(--btn-color);
     padding: 16px 32px;
@@ -74,4 +74,21 @@ form .action-buttons > #submit-button:hover {
 
 fieldset {
      border: none;
+}
+
+.action-buttons > #reset {
+  background-color: var(--form-bg-color);
+  color: var(--app-black);
+  border: 2px solid var(--btn-color);
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 4px 4px;
+  cursor: pointer;
+}
+
+.action-buttons > #reset:hover {
+  background-color: var(--btn-color);
 }

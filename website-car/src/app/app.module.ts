@@ -9,7 +9,7 @@ import { NewInsuranceComponent } from './new-insurance/new-insurance.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CanActivateRouteGuard } from './can-activate-router-cars';
 import { OwnerListComponent } from './owner-list/owner-list.component';
 import { OwnerWrapperComponent } from './owner-wrapper/owner-wrapper.component';
@@ -20,7 +20,11 @@ import { ButtonsComponent } from './buttons/buttons.component';
 import { CommonModule } from '@angular/common';
 import { MyFirstPipePipe } from './pipes/my-first-pipe.pipe';
 import { PhonePipe } from './pipes/phone.pipe';
-
+import { ButtonModule} from 'primeng/button';
+import { InputTextModule} from 'primeng/inputtext';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CarWrapperComponent } from './car-wrapper/car-wrapper.component';
+import { CarListComponent } from './car-list/car-list.component'
 
 @NgModule({
   declarations: [
@@ -39,13 +43,19 @@ import { PhonePipe } from './pipes/phone.pipe';
     TableRowColorDirective,
     ButtonsComponent,
     MyFirstPipePipe,
-    PhonePipe
+    PhonePipe,
+    CarWrapperComponent,
+    CarListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule,
+    InputTextModule,
+    ButtonModule,
+    BrowserAnimationsModule
   ],
   providers: [CanActivateRouteGuard],
   bootstrap: [AppComponent]

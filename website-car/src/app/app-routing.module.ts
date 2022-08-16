@@ -7,12 +7,13 @@ import { NewInsuranceComponent } from './new-insurance/new-insurance.component';
 import { NewOwnerComponent } from './new-owner/new-owner.component';
 import { CanActivateRouteGuard } from './can-activate-router-cars';
 import { OwnerWrapperComponent } from './owner-wrapper/owner-wrapper.component';
+import { CarWrapperComponent } from './car-wrapper/car-wrapper.component';
 
 
 const routes: Routes = [
   {path:'', pathMatch:'full', redirectTo:'home'},
   {path:'home', component: HomeComponent},
-  {path:'cars', component: NewCarComponent, canActivate: [CanActivateRouteGuard]},
+  {path:'cars', component: CarWrapperComponent, canActivate: [CanActivateRouteGuard]},
   {path:'owners', component: OwnerWrapperComponent},
   {path:'insurance', component: NewInsuranceComponent}
 ];

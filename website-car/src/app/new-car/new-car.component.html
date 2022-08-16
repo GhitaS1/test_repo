@@ -1,8 +1,84 @@
 <div class="main">
     <h2>Add new car</h2>
     <div class="body">
-        <form #formId="ngForm" (ngSubmit)="submitForm(formId)">
+        <!-- <form #formId="ngForm" (ngSubmit)="submitForm(formId)"> -->
+            <form [formGroup]="carForm" (ngSubmit)="submitForm()">
+                 <div class="form-field grid-col-span-2" [class.error]="carForm.controls['carBrand'].touched && carForm.controls['carBrand'].invalid">
+                <label for="car-brand">Brand</label>
+                <input type="text" id="car-brand" formControlName="carBrand" />
+                <ng-container *ngIf="carForm.controls['carBrand'].touched">
+                  <small *ngIf="carForm.controls['carBrand'].hasError('required')" class="error">Car Brand is required!!!</small>
+                  <small *ngIf="carForm.controls['carBrand'].hasError('maxlength')" class="error">Car Brand is to loooong!!!</small>
+              </ng-container>
+            </div>
+
+            <div class="form-field grid-col-span-2" [class.error]="carForm.controls['carModel'].touched && carForm.controls['carModel'].invalid">
+                <label for="car-brand">Model</label>
+                <input type="text" id="car-brand" formControlName="carModel" />
+                <ng-container *ngIf="carForm.controls['carModel'].touched">
+                  <small *ngIf="carForm.controls['carModel'].hasError('maxlength')" class="error">Ups, it is tooo much!!</small>
+                  <small *ngIf="carForm.controls['carModel'].hasError('required')" class="error">Car model is required</small>
+              </ng-container>
+            </div>
+
             <div class="form-field grid-col-span-2">
+                <label for="cubic-cap">Cubic Cap</label>
+                <input type="number" id="cubic-cap" formControlName="cubicCap"/>
+            </div>
+
+            <div class="form-field grid-col-span-2">
+                <label for="serial-num">Serial Num</label>
+                <input type="text" id="serial-num" formControlName="serialNum"/>
+            </div>
+
+            <div class="form-field grid-col-span-2">
+                <label for="car-type">Type</label>
+                <input type="select" id="car-type" formControlName="carType"/>
+            </div>
+
+            <div class="form-field grid-col-span-2">
+                <label for="plates">Plates</label>
+                <input type="text" id="car-plates" formControlName="carPlates"/>
+            </div>
+
+            <div class="form-field grid-col-span-2">
+                <label for="car-power">Power</label>
+                <input type="text" id="car-power" formControlName="carPower"/>
+            </div>
+
+            <fieldset>
+
+              <legend>Select fuel type:</legend>
+              <div>
+                  <input type="radio" id="solid-fuel" formControlName="fuelType" value="Solid fuel">
+                  <label for="solid-fuel">Solid fuel</label>
+              </div>
+
+              <div>
+                  <input type="radio" id="liquid-fuel" formControlName="fuelType" value="Liquid fuel">
+                  <label for="liquid-fuel">Liquid fuel</label>
+              </div>
+
+              <div>
+                  <input type="radio" id="gaseous-fuel" formControlName="fuelType" value="Gaseous fuel">
+                  <label for="gaseous-fuel">Gaseous fuel</label>
+              </div>
+            </fieldset>
+
+            <div class="form-field" id="owner-id-select">
+              <label for="owner-id">Owner ID</label>
+              <select id="owner-id" formControlName="ownerId">
+              <option value="Option 1">Id 1</option>
+              <option value="Option 3">Id 2</option>
+              <option value="Option 2">Id 3</option>
+              </select>
+
+
+            </div>
+
+
+
+            <!-- <div class="form-field grid-col-span-2">
                 <label for="car-brand">Brand</label>
                 <input type="text" id="car-brand" name="car-brand" ngModel/>
             </div>
@@ -40,7 +116,7 @@
 
             <div class="form-field">
             <fieldset>
-                
+
                 <legend>Select fuel type:</legend>
                 <div>
                     <input type="radio" id="solid-fuel" name="fuel-type" value="Solid fuel" ngModel>
@@ -63,10 +139,11 @@
                 <label for="owner-id">Owner ID</label>
                 <select id="owner-id" name="owner-id" ngModel></select>
             </div>
-            
+             -->
 
             <div class="action-buttons">
                 <button id="submit-button" type="submit">Add car</button>
+                <button id="reset" (click)="resetForm()" (click)="$event.preventDefault()">Reset</button>
             </div>
         </form>
     </div>

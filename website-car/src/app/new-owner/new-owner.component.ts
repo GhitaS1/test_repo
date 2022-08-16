@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { timer } from 'rxjs';
+import { Subscription, timer } from 'rxjs';
 import { GenderSelect } from '../enums/gender-select.enum';
 import { Owner } from '../models/owner.model';
 
@@ -9,7 +9,7 @@ import { Owner } from '../models/owner.model';
   templateUrl: './new-owner.component.html',
   styleUrls: ['./new-owner.component.scss']
 })
-export class NewOwnerComponent implements OnInit {
+export class NewOwnerComponent implements OnInit{
   private _fromWrapperToOwner: Owner | undefined;
 
   @Output() updateOwnerEvent: EventEmitter<Owner> = new EventEmitter();
@@ -41,7 +41,7 @@ export class NewOwnerComponent implements OnInit {
   owners: Owner[] = [];
 
   firstName: string = '';
-
+  timer: Subscription;
   constructor() { }
 
   ngOnInit(): void {
@@ -53,6 +53,10 @@ export class NewOwnerComponent implements OnInit {
     )
 
   }
+
+  // ngOnDestroy():void {
+  //   this.timer.unsubscribe();
+  // }
 
   submitForm(form: NgForm) {
     let owner = new Owner(form.form.value.firstName, form.form.value.lastName, form.form.value.cnp, form.form.value.birthDate, form.form.value.gender);

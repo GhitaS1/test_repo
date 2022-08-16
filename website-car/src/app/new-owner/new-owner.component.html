@@ -1,12 +1,12 @@
 <div class="main">
-   <h2> {{componentTitle | uppercase}}</h2>
+   <h2> {{componentTitle}}</h2>
     {{myDate | date: 'dd.MMM.YYYY hh mm ss'}}
     <div class="body">
         <form #formId="ngForm" (ngSubmit)="submitForm(formId)" (ngReset)="resetForm(formId)">
             <div class="form-field grid-col-span-2">
                 <label for="first-name">{{firstNameLabel}}</label>
-                <input type="text" id="first-name" name="firstName" [ngModel]=fromWrapperToOwner?.firstName
-                    appFocusInput />
+                <input type="text" pInputText id="first-name" name="firstName" [ngModel]=fromWrapperToOwner?.firstName
+                    appFocusInput >
             </div>
             <div class="form-field grid-col-span-2">
                 <label for="last-name">{{lastNameLabel}}</label>
